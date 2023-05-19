@@ -3,10 +3,11 @@ import {Switch,Route,Link,BrowserRouter as Router,} from "react-router-dom"
 import Account from './Account';
 import App from "./App";
 import Project from "./Project";
-
+import CustomInput from "./Components/FormElements/CustomInput";
 class AccountCreate extends Component{
     constructor(props){
         super(props)
+     
         this.state ={
           name:"",
           lastname:"",
@@ -33,6 +34,7 @@ class AccountCreate extends Component{
     test = (name) => {
       console.log(name)
     }
+   
         
     render(){
 
@@ -41,6 +43,7 @@ class AccountCreate extends Component{
         return(
           
             <form ><h1 style={{backgroundColor:"blue", width:"150px"}} > CREATE ACCOUNT 
+        
             </h1>
              <br></br>
                 <br></br>
@@ -78,7 +81,9 @@ class AccountCreate extends Component{
               <Switch> 
                <Route path="/Project" ><Project/></Route>
                </Switch>
+               
              </Router>
+            
             </form>
             
         )

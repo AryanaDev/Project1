@@ -2,15 +2,17 @@ import React, { Component } from "react";
 import { Switch, Route, Link, BrowserRouter as Router } from "react-router-dom";
 import AccountCreate from "./AccountCreate";
 import { UserConsumer } from "./UserContext";
-
+import CustomInput from "./Components/FormElements/CustomInput";
 class Account extends Component {
   constructor(props) {
     super(props);
+    
   }
-
+  
   render() {
     return (
       <Router>
+
         <ul>
           <li>
             <Link to="/AccountCreate">AccountCreate</Link>
@@ -45,14 +47,16 @@ class Account extends Component {
             <AccountCreate />
           </Route>
         </Switch>
+        
       </Router>
+      
     );
   }
 }
 
 const styles = {
   headerCell: {
-    backgroundColor: "blue",
+    backgroundColor: "gold",
     padding: "8px",
     fontWeight: "bold",
     textAlign: "left",

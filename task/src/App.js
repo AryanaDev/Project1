@@ -4,17 +4,19 @@ import AccountCreate from './AccountCreate';
 import Account from './Account';
 import { UserConsumer } from "./UserContext";
 import { UserProvider } from "./UserContext";
+import CustomInput from "./Components/FormElements/CustomInput";
 
 class App extends Component {
   constructor(props) {
     super(props);
+    
     this.state1 = [{
       name: "aryana",
       lastname: "rasteh",
       gmail: "aryana2003@gmail.com"
     }];
   }
-   
+  
    render(){
     return( 
      
@@ -50,7 +52,7 @@ class App extends Component {
          
          <Route path='/Account' ><Account/></Route>
          </Switch>
-     
+       
       </Router>
       </UserProvider> 
       
