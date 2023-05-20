@@ -6,9 +6,24 @@ import CustomInput from "./Components/FormElements/CustomInput";
 class Account extends Component {
   constructor(props) {
     super(props);
-    
+    this.AccountRef = React.createRef();
+    this.state7={
+      name : ""
+    }
   }
   
+  inputUpdateRef = (e,key) =>{
+    const name = key
+    const value = e.target.value
+    console.log(value)
+    console.log(key)
+    const  Ns= this.state7
+    this.setState({
+      ...Ns,
+      [key]: value
+    })
+    
+  }
   render() {
     return (
       <Router>
@@ -29,7 +44,7 @@ class Account extends Component {
           <tbody>
             <UserConsumer>
               {(A) => {
-                console.log(A);
+                
                 return A.map((item) => (
                   <tr key={item.name}>
                     <td style={styles.dataCell}>{item.name}</td>
@@ -44,7 +59,8 @@ class Account extends Component {
 
         <Switch>
           <Route path="/AccountCreate" >
-            <AccountCreate />
+            <AccountCreate AccountRef={this.AccountRef} inputUpdate={this.inputUpdateRef} 
+            />
           </Route>
         </Switch>
         

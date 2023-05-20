@@ -9,14 +9,15 @@ class Project extends Component {
       name: "",
       duedate: "",
       owner: "",
-      showFocusButton: true
+      showFocusButton: false
     };
 
     this.CustomInputRef = createRef();
   }
 
   focusInputRef = () => {
-    this.CustomInputRef.current.focusInput();
+  
+    this.CustomInputRef.current.focus();
   }
 
   projectHandler = (e, key) => {
@@ -25,13 +26,15 @@ class Project extends Component {
       [key]: value
     });
   };
+  
 
   render() {
     return (
       <div>
         <CustomInput
-          ref={this.CustomInputRef}
+          customRef={this.CustomInputRef}
           showFocusButton={this.state.showFocusButton}
+          focusInput={this.focusInputRef}
         />
         
         <h1 style={{ backgroundColor: "red", width: "200px" }}>ProjectCreate</h1>
@@ -80,9 +83,7 @@ class Project extends Component {
           submit
         </button>
         <br />
-        <button type="button" onClick={this.focusInputRef}>
-          Focus Input
-        </button>
+      
       </div>
     );
   }

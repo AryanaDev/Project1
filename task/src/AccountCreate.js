@@ -9,12 +9,12 @@ class AccountCreate extends Component{
         super(props)
      
         this.state ={
-          name:"",
           lastname:"",
           gamil:"",
           roll:"",
           number:"",
           adress:""
+          
         }
     }
    
@@ -31,13 +31,15 @@ class AccountCreate extends Component{
        
     }
 
-    test = (name) => {
-      console.log(name)
+    test = (lastname) => {
+      console.log(lastname)
     }
+  
    
         
     render(){
-
+      const {AccountRef,inputUpdate,state7} = this.props
+      
       
 
         return(
@@ -47,7 +49,7 @@ class AccountCreate extends Component{
             </h1>
              <br></br>
                 <br></br>
-               Name :    <input style={{backgroundColor:"orange", width:"150px"}} type="text" Value={this.state.name} onChange={(e) =>{ this.handleInputChange1(e, "name") }} defaultValue={"Name"}/>
+               Name :    <input  type="text" ref={AccountRef} onChange= {(e) => {this.props.inputUpdate(e,"name")}} value={this.props.state7}  defaultValue={"Name"}/>
                 <br></br>
                 <br></br>
                 LastName :  <input style={{backgroundColor:"purple", width:"150px"}} type="text" Value={this.state.lastname} onChange={(e) => {this.handleInputChange1(e,"lastname")}} defaultValue={"LastName"}/>
@@ -66,7 +68,8 @@ class AccountCreate extends Component{
                
                 
                 <button style={{backgroundColor:"pink", width:"200px"}} type="button" onClick={() =>{
-              console.log(this.state)
+              console.log(this.state,this.props.state7)
+
               alert("submitted")
             }} >submit </button> 
                     <Router>
