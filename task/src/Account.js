@@ -12,9 +12,9 @@ class Account extends Component {
   }
   
   inputUpdateRef = () =>{
-      const v = this.AccountRef.current.value
-      const v1 = v + "here"
-      console.log(v1)
+      this.AccountRef.current.value = "here" + this.AccountRef.current.value
+    
+        
   }
   render() {
     return (

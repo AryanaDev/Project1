@@ -16,10 +16,7 @@ class AccountCreate extends Component{
           adress:""
           
         }
-        this.stateA={
-          ...this.state,
-          ...this.props.state7
-        }
+     
     }
    
 
@@ -53,7 +50,7 @@ class AccountCreate extends Component{
             </h1>
              <br></br>
                 <br></br>
-               Name :    <input  type="text" ref={AccountRef} onBlur= {() => inputUpdate(v)}   defaultValue={"Name"}/>
+               Name :    <input  type="text" ref={AccountRef} onBlur= {() => inputUpdate(v)}   defaultValue={"name"}/>
                 <br></br>
                 <br></br>
                 LastName :  <input style={{backgroundColor:"purple", width:"150px"}} type="text" Value={this.state.lastname} onChange={(e) => {this.handleInputChange1(e,"lastname")}} defaultValue={"LastName"}/>
