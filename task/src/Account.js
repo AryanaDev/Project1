@@ -6,23 +6,15 @@ import CustomInput from "./Components/FormElements/CustomInput";
 class Account extends Component {
   constructor(props) {
     super(props);
+    
     this.AccountRef = React.createRef();
-    this.state7={
-      name : ""
-    }
+   
   }
   
-  inputUpdateRef = (e,key) =>{
-    const name = key
-    const value = e.target.value
-    console.log(value)
-    console.log(key)
-    const  Ns= this.state7
-    this.setState({
-      ...Ns,
-      [key]: value
-    })
-    
+  inputUpdateRef = () =>{
+      const v = this.AccountRef.current.value
+      const v1 = v + "here"
+      console.log(v1)
   }
   render() {
     return (
