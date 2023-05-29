@@ -1,5 +1,7 @@
 import React, { Component, createRef } from "react";
 import CustomInput from "./Components/FormElements/CustomInput";
+import Klid from "./Klid";
+import P from "./P"
 
 class Project extends Component {
   constructor(props) {
@@ -83,6 +85,13 @@ class Project extends Component {
           submit
         </button>
         <br />
+        <h1>Click for search same Names</h1>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <Klid/>
+          <P/>
       
       </div>
     );
