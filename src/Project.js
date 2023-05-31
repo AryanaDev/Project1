@@ -1,7 +1,9 @@
 import React, { Component, createRef } from "react";
 import CustomInput from "./Components/FormElements/CustomInput";
+import nameList from "./nameList";
+import P from "./P";
 import Klid from "./Klid";
-import P from "./P"
+
 
 class Project extends Component {
   constructor(props) {
@@ -92,6 +94,7 @@ class Project extends Component {
           <br></br>
           <Klid/>
           <P/>
+       
       
       </div>
     );

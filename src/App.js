@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import { Switch, Route, Link, BrowserRouter as Router } from "react-dom"
-import AccountCreate from './AccountCreate';
-import Account from './Account';
+import React, { Component } from "react"
+import { Switch,Link,Route , BrowserRouter as Router } from "react-router-dom/cjs/react-router-dom.min";
+import AccountCreate from "./AccountCreate";
+import Account from "./Account";
 import { UserConsumer } from "./UserContext";
 import { UserProvider } from "./UserContext";
 import CustomInput from "./Components/FormElements/CustomInput";

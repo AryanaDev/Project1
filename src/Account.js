@@ -1,7 +1,8 @@
-import React, { Component } from "react";
-import { Switch, Route, Link, BrowserRouter as Router } from "react-router-dom";
+import React, { Component } from "react"
+import { Switch,Link,Route , BrowserRouter as Router } from "react-router-dom/cjs/react-router-dom.min";
 import AccountCreate from "./AccountCreate";
 import { UserConsumer } from "./UserContext";
+import { UserProvider } from "./UserContext";
 import CustomInput from "./Components/FormElements/CustomInput";
 class Account extends Component {
   constructor(props) {

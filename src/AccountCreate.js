@@ -1,9 +1,11 @@
-import React, { Component } from "react";
-import {Switch,Route,Link,BrowserRouter as Router,} from "react-router-dom"
-import Account from './Account';
-import App from "./App";
-import Project from "./Project";
+import React, { Component } from "react"
+import { Switch,Link,Route , BrowserRouter as Router } from "react-router-dom/cjs/react-router-dom.min";
+import Account from "./Account";
+import { UserConsumer } from "./UserContext";
+import { UserProvider } from "./UserContext";
 import CustomInput from "./Components/FormElements/CustomInput";
+import Project from "./Project";
+
 class AccountCreate extends Component{
     constructor(props){
         super(props)
