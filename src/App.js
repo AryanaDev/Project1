@@ -4,6 +4,8 @@ import Account from "./Account";
 import { UserProvider } from "./UserContext";
 import Project from "./Project";
 import AccountCreate from "./AccountCreate";
+import User2 from "./User2";
+import CreateUser from "./CreateUser";
 class App extends Component {
   constructor(props) {
     super(props);
@@ -23,9 +25,6 @@ class App extends Component {
             <li>
               <Link to='/Home'  >Home</Link>
             </li>
-
-          </ul>
-          <ul>
             <li>
               <Link to='/Account' >Account</Link>
             </li>
@@ -39,6 +38,12 @@ class App extends Component {
           </Switch>
           <Switch>
             <Route path="/Project" component={Project} ><Project /></Route>
+          </Switch>
+          <Switch>
+            <Route path="/User2" component={User2} ><User2 /></Route>
+          </Switch>
+          <Switch>
+            <Route path="/CreateUser" component={CreateUser} ><Project /></Route>
           </Switch>
         </Router>
       </UserProvider>

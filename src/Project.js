@@ -1,5 +1,6 @@
 import React, { Component, createRef } from "react";
 import CustomInput from "./Components/FormElements/CustomInput";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import P from "./P";
 import Klid from "./Klid";
 
@@ -94,6 +95,11 @@ class Project extends Component {
         <br></br>
         <Klid />
         <P />
+        <ul>
+            <li>
+              <Link to='/User2' >User2</Link>
+            </li>
+          </ul>
 
 
       </div>
