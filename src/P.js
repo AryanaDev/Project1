@@ -9,7 +9,7 @@ class P extends React.Component {
         <br></br>
         <br></br>
         <br></br>
-        <h1  onMouseOver={this.props.prp}> [ Check it ] </h1>
+        <h1 onMouseOver={this.props.prp}> [ Check it ] </h1>
       </div>
     );
   }

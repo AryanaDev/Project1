@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Project from "./Project";
+
 
 const nameList = (WrappedComponent) => {
   class NameList extends Component {
@@ -37,10 +37,8 @@ const nameList = (WrappedComponent) => {
     stateHandler() {
       const nameMesl = {};
       this.state.names.filter((name) => {
-        (name in nameMesl)?  nameMesl[name]++  :  nameMesl[name] = 1;
- 
+        (name in nameMesl) ? nameMesl[name] = nameMesl[name] + 1 : nameMesl[name] = 1;
       });
-
       Object.entries(nameMesl).filter(([name, nmsl]) => {
         if (nmsl > 1) {
           console.log(`${name}: بار تکرار شده ${nmsl}`);

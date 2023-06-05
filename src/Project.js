@@ -1,6 +1,5 @@
 import React, { Component, createRef } from "react";
 import CustomInput from "./Components/FormElements/CustomInput";
-import nameList from "./nameList";
 import P from "./P";
 import Klid from "./Klid";
 
@@ -8,7 +7,7 @@ import Klid from "./Klid";
 class Project extends Component {
   constructor(props) {
     super(props);
-    
+
     this.state = {
       name: "",
       duedate: "",
@@ -20,7 +19,7 @@ class Project extends Component {
   }
 
   focusInputRef = () => {
-  
+
     this.CustomInputRef.current.focus();
   }
 
@@ -30,51 +29,52 @@ class Project extends Component {
       [key]: value
     });
   };
-  
+
 
   render() {
     return (
       <div>
+        <h1>ProjectCreate</h1>
+        <br></br>
         <CustomInput
           customRef={this.CustomInputRef}
           showFocusButton={this.state.showFocusButton}
           focusInput={this.focusInputRef}
         />
-        
-        <h1 style={{ backgroundColor: "red", width: "200px" }}>ProjectCreate</h1>
-        Name:{" "}
-        <input
-          style={{ backgroundColor: "Purple", width: "150px" }}
+        <br></br>
+        <br></br>
+        <br></br>
+
+        Name:{" "} <input
           type="text"
           value={this.state.name}
           onChange={(e) => {
             this.projectHandler(e, "name");
           }}
-          defaultValue={"Name"}
+
         />
+
         <br />
         <br />
         Duedate:{" "}
         <input
-          style={{ backgroundColor: "yellow", width: "150px" }}
           type="text"
           value={this.state.duedate}
           onChange={(e) => {
             this.projectHandler(e, "duedate");
           }}
-          defaultValue={"Duedate"}
+
         />
         <br />
         <br />
         Owner:{" "}
         <input
-          style={{ backgroundColor: "orange", width: "150px" }}
           type="text"
           value={this.state.owner}
           onChange={(e) => {
             this.projectHandler(e, "owner");
           }}
-          defaultValue={"Owner"}
+
         />
         <br />
         <button
@@ -87,15 +87,15 @@ class Project extends Component {
           submit
         </button>
         <br />
-        <h1>Click for search same Names</h1>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <Klid/>
-          <P/>
-       
-      
+        <h1 >Click for search same Names</h1>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <Klid />
+        <P />
+
+
       </div>
     );
   }

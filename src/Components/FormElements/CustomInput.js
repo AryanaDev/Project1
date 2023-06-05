@@ -1,24 +1,18 @@
-import React, { Component, forwardRef } from "react";
+import React, { Component } from "react";
 
 export default class CustomInput extends Component {
-  constructor(props) {
-    super(props);
-    
-  }
-
-
   render() {
-    const { showFocusButton, focusInput ,customRef } = this.props;
+    const { showFocusButton, focusInput, customRef } = this.props;
 
     return (
       <div>
         <input type="text" ref={customRef} />
         {
-          showFocusButton ? <button type="button" onClick={focusInput}> 
-          My Button
-        </button> : null
+          showFocusButton ? <button type="button" onClick={focusInput}>
+            My Button
+          </button> : null
         }
-        
+
       </div>
     );
   }

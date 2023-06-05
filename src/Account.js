@@ -1,35 +1,33 @@
 import React, { Component } from "react"
-import { Switch,Link,Route , BrowserRouter as Router } from "react-router-dom/cjs/react-router-dom.min";
-import AccountCreate from "./AccountCreate";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import { UserConsumer } from "./UserContext";
-import { UserProvider } from "./UserContext";
-import CustomInput from "./Components/FormElements/CustomInput";
+
 class Account extends Component {
   constructor(props) {
     super(props);
-    
+
     this.AccountRef = React.createRef();
-   
   }
-  
-  inputUpdateRef = () =>{
-      this.AccountRef.current.value = "here" + this.AccountRef.current.value
-    
-        
+
+  inputUpdateRef = () => {
+    this.AccountRef.current.value = "here" + this.AccountRef.current.value
   }
+
   render() {
     return (
-      <Router>
+      <>
 
         <ul>
           <li>
             <Link to="/AccountCreate">AccountCreate</Link>
           </li>
         </ul>
+
+
         <table style={{ width: "100%", border: "1px solid #ccc" }}>
           <thead>
             <tr>
-              <th style={styles.headerCell}>Name</th> 
+              <th style={styles.headerCell}>Name</th>
               <th style={styles.headerCell}>Lastname</th>
               <th style={styles.headerCell}>Email</th>
             </tr>
@@ -37,7 +35,7 @@ class Account extends Component {
           <tbody>
             <UserConsumer>
               {(A) => {
-                
+
                 return A.map((item) => (
                   <tr key={item.name}>
                     <td style={styles.dataCell}>{item.name}</td>
@@ -49,16 +47,7 @@ class Account extends Component {
             </UserConsumer>
           </tbody>
         </table>
-
-        <Switch>
-          <Route path="/AccountCreate" >
-            <AccountCreate AccountRef={this.AccountRef} inputUpdate={this.inputUpdateRef} 
-            />
-          </Route>
-        </Switch>
-        
-      </Router>
-      
+      </>
     );
   }
 }

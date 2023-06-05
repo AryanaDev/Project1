@@ -5,7 +5,7 @@ class Klid extends React.Component {
   render() {
     return (
       <div>
-        <button onClick={this.props.prp}>Check it</button>
+        <button type="button" onClick={this.props.prp}>Check it</button>
       </div>
     );
   }
