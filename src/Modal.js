@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-const Modal = ((props) => {
+const Modal = React.memo((props) => {
   const cardStyle = {
     border: "1px solid #ccc",
     borderRadius: "4px",
@@ -19,9 +19,7 @@ const Modal = ((props) => {
   const contentStyle = {
     fontSize: "16px"
   };
-
-  console.log(props.state12 ? true : false );
-
+   console.log("modal component rendered") 
   return ReactDOM.createPortal(
     <div style={cardStyle}>
       <div style={titleStyle}>{props.title}</div>
@@ -31,4 +29,4 @@ const Modal = ((props) => {
   );
 });
 
-export default React.memo(Modal);
+export default Modal;

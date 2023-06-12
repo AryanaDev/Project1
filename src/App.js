@@ -19,18 +19,19 @@ class App extends React.Component {
   
     this.state = {
       ModalOpen: false,
-      state12: false
     };
+     this.state12= {check : false}
   }
+ 
 
   componentDidMount() {
-    setInterval(() => {
-      this.setState((prevState) => ({
-        state12: !prevState.state12
+    setInterval((prevState) => {
+      this.setState(({
+      check : false
       }));
-    }, 1000);
-
-    console.log(this.state.state12 ? true : false);
+      console.log(this.state12.check === false? "Parent component rendered" : true);
+    }, 3000);
+    
   }
 
   openModal = () => {
