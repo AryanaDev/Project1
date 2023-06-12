@@ -1,12 +1,14 @@
-import React, { Component } from "react"
-import { Switch, Link, Route, BrowserRouter as Router } from "react-router-dom/cjs/react-router-dom.min";
+import React from "react";
+import { Switch, Link, Route, BrowserRouter as Router } from "react-router-dom";
 import Account from "./Account";
 import { UserProvider } from "./UserContext";
 import Project from "./Project";
 import AccountCreate from "./AccountCreate";
 import User2 from "./User2";
 import CreateUser from "./CreateUser";
-class App extends Component {
+import Modal from "./Modal";
+
+class App extends React.Component {
   constructor(props) {
     super(props);
     this.state1 = [{
@@ -14,40 +16,72 @@ class App extends Component {
       lastname: "rasteh",
       gmail: "aryana2003@gmail.com"
     }];
+  
+    this.state = {
+      ModalOpen: false,
+      state12: false
+    };
   }
+
+  componentDidMount() {
+    setInterval(() => {
+      this.setState((prevState) => ({
+        state12: !prevState.state12
+      }));
+    }, 1000);
+
+    console.log(this.state.state12 ? true : false);
+  }
+
+  openModal = () => {
+    this.setState({ ModalOpen: true });
+  };
+
+  closeModal = () => {
+    this.setState({ ModalOpen: false });
+  };
+
   render() {
+    
     return (
       <UserProvider value={this.state1}>
+        <div>
+          <button onClick={this.openModal}>Open Modal</button>
+          <button onClick={this.closeModal}>Close Modal</button>
+
+          {this.state.ModalOpen && (
+            <Modal
+              title="Cristiano Ronaldo"
+              content="Cristiano Ronaldo, in full Cristiano Ronaldo dos Santos Aveiro, (born February 5, 1985, Funchal, Madeira, Portugal), Portuguese football (soccer) forward who was one of the greatest players of his generation.
+
+              Early life and career
+              Ronaldo’s father, José Dinis Aveiro, was the equipment manager for the local club Andorinha. (The name Ronaldo was added to Cristiano’s name in honour of his father’s favourite movie actor, Ronald Reagan, who was U.S. president at the time of Cristiano’s birth.) At age 15 Ronaldo was diagnosed with a heart condition that necessitated surgery, but he was sidelined only briefly and made a full recovery. He first played for Clube Desportivo Nacional of Madeira and then transferred to Sporting Clube de Portugal (known as Sporting Lisbon), where he played for that club’s various youth teams before making his debut on Sporting’s first team in 2002."
+              state12={this.state.state12}
+            />
+          )}
+        </div>
         <Router>
           <ul>
             <h1> Welcome To My Website </h1>
-            <br></br>
+            <br />
             <li>
-              <Link to='/Home'  >Home</Link>
+              <Link to="/Home">Home</Link>
             </li>
             <li>
-              <Link to='/Account' >Account</Link>
+              <Link to="/Account">Account</Link>
             </li>
           </ul>
           <Switch>
-            <Route path="/Account" component={Account}><Account /></Route>
-          </Switch>
-          <Switch>
-            <Route path="/AccountCreate" component={AccountCreate}>
-            </Route>
-          </Switch>
-          <Switch>
-            <Route path="/Project" component={Project} ><Project /></Route>
-          </Switch>
-          <Switch>
-            <Route path="/User2" component={User2} ><User2 /></Route>
-          </Switch>
-          <Switch>
-            <Route path="/CreateUser" component={CreateUser} ><Project /></Route>
+            <Route path="/Account" component={Account} />
+            <Route path="/AccountCreate" component={AccountCreate} />
+            <Route path="/Project" component={Project} />
+            <Route path="/User2" component={User2} />
+            <Route path="/CreateUser" component={CreateUser} />
           </Switch>
         </Router>
       </UserProvider>
-    )
+    );
   }
 }
-export default App
+
+export default App;

@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom/cjs/react-router-dom";
+
 class User2 extends Component {
   render() {
     return (
       <div>
+        
         <table>
           <thead>
             <tr>
@@ -31,6 +33,7 @@ class User2 extends Component {
           </li>
         </ul>
       </div>
+      
     )
   }
 }
