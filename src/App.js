@@ -7,6 +7,7 @@ import AccountCreate from "./AccountCreate";
 import User2 from "./User2";
 import CreateUser from "./CreateUser";
 import Modal from "./Modal";
+import UniversityForm from "./UniversityForm";
 
 class App extends React.Component {
   constructor(props) {
@@ -47,6 +48,7 @@ class App extends React.Component {
     return (
       <UserProvider value={this.state1}>
         <div>
+        
           <button onClick={this.openModal}>Open Modal</button>
           <button onClick={this.closeModal}>Close Modal</button>
 
@@ -80,6 +82,7 @@ class App extends React.Component {
             <Route path="/CreateUser" component={CreateUser} />
           </Switch>
         </Router>
+        <UniversityForm/>
       </UserProvider>
     );
   }

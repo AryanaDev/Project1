@@ -25,6 +25,7 @@ const Modal = React.memo((props) => {
       <div style={titleStyle}>{props.title}</div>
       <div style={contentStyle}>{props.content}</div>
     </div>,
+    
     document.getElementById("Portal-Modal")
   );
 });
