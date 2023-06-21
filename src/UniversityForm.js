@@ -3,46 +3,23 @@ import axios from "axios";
 
 function UniversityForm() {
   const [university, setUniversity] = useState([]);
-  const [newUniversities, setNewUniversities] = useState([]);
 
   useEffect(() => {
     axios.get("http://universities.hipolabs.com/search?country=United+States")
       .then((response) => {
         setUniversity(response.data);
+        if (university.length > 0) {
+          setUniversity(university.slice(0, 10));
+        }
         console.log(response.data);
       })
       .catch((error) => {
         console.error(error);
       });
-  }, []);
-
-  useEffect(() => {
-    if (university.length > 0) {
-      setNewUniversities(university.slice(0, 10));
-    }
   });
-
   return (
     <>
       <h1>UniversityForm</h1>
-      <table style={{ borderCollapse: "collapse", width: "100%" }}>
-        <thead>
-          <tr>
-            <th style={tableHeaderStyle}>Name</th>
-            <th style={tableHeaderStyle}>Country</th>
-            <th style={tableHeaderStyle}>State-Province</th>
-          </tr>
-        </thead>
-        <tbody>
-          {university.map((uni) => (
-            <tr key={uni.name}>
-              <td style={tableDataStyle}>{uni.name}</td>
-              <td style={tableDataStyle}>{uni.country}</td>
-              <td style={tableDataStyle}>{uni["state-province"]}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
       <h2>First 10 University Names:</h2>
       <table style={{ borderCollapse: "collapse", width: "100%" }}>
         <thead>
@@ -53,7 +30,7 @@ function UniversityForm() {
           </tr>
         </thead>
         <tbody>
-          {newUniversities.map((uni) => (
+          {university.map((uni) => (
             <tr key={uni.name}>
               <td style={tableDataStyle}>{uni.name}</td>
               <td style={tableDataStyle}>{uni.country}</td>
