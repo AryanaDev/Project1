@@ -84,6 +84,7 @@ class App extends React.Component {
           </Switch>
         </Router>
         <UniversitySignup/>
+        <UniversityForm/>
       </UserProvider>
     );
   }
