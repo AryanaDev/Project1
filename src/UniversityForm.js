@@ -1,27 +1,27 @@
-import React, { useState, useEffect } from "react"
-import axios from "axios"
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 function UniversityForm() {
   const [university, setUniversity] = useState([])
   const [item, setItem] = useState({ items: 10 })
-  const [allData, setAllData] = useState([])
+  const [allData, setAllData] = useState([]);
 
   useEffect(() => {
     axios
       .get("http://universities.hipolabs.com/search?country=United+States")
       .then((response) => {
-        setUniversity(response.data.slice(0,item.items))
+        setUniversity(response.data.slice(0, 10))
         setAllData(response.data)
         console.log(response.data)
       })
       .catch((error) => {
         console.error(error)
       });
-  },[item.items]);
+  }, []);
 
   useEffect(() => {
-    setAllData(allData)
-  },[allData])
+    setUniversity(allData.slice(0, item.items))
+  }, [item.items, allData]);
 
   return (
     <>
