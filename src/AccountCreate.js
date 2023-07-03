@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import Local from "./Local";
 
 class AccountCreate extends Component {
   constructor(props) {
@@ -52,7 +53,7 @@ class AccountCreate extends Component {
         LastName :  <input type="text" value={this.state.lastname} onChange={(e) => { this.handleInputChange1(e, "lastname") }} />
         <br></br>
         <br></br>
-        Gmail :   <input type="text" value={this.state.gamil} onChange={(e) => { this.handleInputChange1(e, "gmail") }} />
+        Gmail :   <input type="text" value={this.state.gmail} onChange={(e) => { this.handleInputChange1(e, "gmail") }} />
         <br></br>
         <br></br>
         roll :   <input type="text" value={this.state.roll} onChange={(e) => { this.handleInputChange1(e, "roll") }} />
@@ -70,7 +71,7 @@ class AccountCreate extends Component {
           alert("submitted")
         }} >submit </button>
 
-
+          <Local/>
         <ul>
           <li>
 

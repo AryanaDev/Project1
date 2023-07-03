@@ -2,13 +2,14 @@ import React from "react";
 import { Switch, Link, Route, BrowserRouter as Router } from "react-router-dom";
 import Account from "./Account";
 import { UserProvider } from "./UserContext";
-import Project from "./Project";
+import Project from "./Project"; 
 import AccountCreate from "./AccountCreate";
 import User2 from "./User2";
 import CreateUser from "./CreateUser";
 import Modal from "./Modal";
 import UniversityForm from "./UniversityForm";
 import UniversitySignup from "./UniversitySignup";
+
 
 class App extends React.Component {
   constructor(props) {
@@ -18,23 +19,15 @@ class App extends React.Component {
       lastname: "rasteh",
       gmail: "aryana2003@gmail.com"
     }];
-  
+
     this.state = {
       ModalOpen: false,
     };
-     this.state12= {check : false}
+    this.state12 = { check: false }
   }
- 
 
-  componentDidMount() {
-    setInterval((prevState) => {
-      this.setState(({
-      check : false
-      }));
-      console.log(this.state12.check === false? "Parent component rendered" : true);
-    }, 3000);
-    
-  }
+
+
 
   openModal = () => {
     this.setState({ ModalOpen: true });
@@ -45,7 +38,7 @@ class App extends React.Component {
   };
 
   render() {
-    
+
     return (
       <UserProvider value={this.state1}>
         <div>
@@ -83,8 +76,8 @@ class App extends React.Component {
             <Route path="/CreateUser" component={CreateUser} />
           </Switch>
         </Router>
-        <UniversitySignup/>
-        <UniversityForm/>
+        <UniversitySignup />
+        <UniversityForm />
       </UserProvider>
     );
   }

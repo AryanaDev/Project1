@@ -21,7 +21,7 @@ function UniversityForm() {
 
   useEffect(() => {
     setUniversity(allData.slice(0, item.items))
-  }, [item.items, allData]);
+  }, [item.items]);
 
   return (
     <>
