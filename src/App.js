@@ -1,62 +1,65 @@
-import React from "react";
+import React, { useState } from "react";
 import { Switch, Link, Route, BrowserRouter as Router } from "react-router-dom";
 import Account from "./Account";
 import { UserProvider } from "./UserContext";
-import Project from "./Project"; 
+import Project from "./Project";
 import AccountCreate from "./AccountCreate";
 import User2 from "./User2";
 import CreateUser from "./CreateUser";
 import Modal from "./Modal";
-import UniversityForm from "./UniversityForm";
 import UniversitySignup from "./UniversitySignup";
+import Counter from "./Counter";
 
+export const UserContext = React.createContext();
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state1 = [{
+function App() {
+  const [state1] = useState([
+    {
       name: "aryana",
       lastname: "rasteh",
       gmail: "aryana2003@gmail.com"
-    }];
+    }
+  ]);
+  const [ModalOpen, setModalOpen] = useState(false);
+  const [state12] = useState({ check: false });
 
-    this.state = {
-      ModalOpen: false,
-    };
-    this.state12 = { check: false }
-  }
+  const [count, setCount] = useState(0);
 
-
-
-
-  openModal = () => {
-    this.setState({ ModalOpen: true });
+  const openModal = () => {
+    setModalOpen(true);
   };
 
-  closeModal = () => {
-    this.setState({ ModalOpen: false });
+  const closeModal = () => {
+    setModalOpen(false);
   };
 
-  render() {
+  const incrementCount = () => {
+    setCount(count + 1);
+  };
+  const decrementCount = () => {
+    setCount(count - 1);
+  };
 
-    return (
-      <UserProvider value={this.state1}>
+  return (
+      <UserProvider value={state1}>
         <div>
-        
-          <button onClick={this.openModal}>Open Modal</button>
-          <button onClick={this.closeModal}>Close Modal</button>
+          <button onClick={openModal}>Open Modal</button>
+          <button onClick={closeModal}>Close Modal</button>
 
-          {this.state.ModalOpen && (
-            <Modal
-              title="Cristiano Ronaldo"
-              content="Cristiano Ronaldo, in full Cristiano Ronaldo dos Santos Aveiro, (born February 5, 1985, Funchal, Madeira, Portugal), Portuguese football (soccer) forward who was one of the greatest players of his generation.
+          {ModalOpen && (
+              <Modal
+                  title="Cristiano Ronaldo"
+                  content="Cristiano Ronaldo, in full Cristiano Ronaldo dos Santos Aveiro, (born February 5, 1985, Funchal, Madeira, Portugal), Portuguese football (soccer) forward who was one of the greatest players of his generation.
 
-              Early life and career
-              Ronaldo’s father, José Dinis Aveiro, was the equipment manager for the local club Andorinha. (The name Ronaldo was added to Cristiano’s name in honour of his father’s favourite movie actor, Ronald Reagan, who was U.S. president at the time of Cristiano’s birth.) At age 15 Ronaldo was diagnosed with a heart condition that necessitated surgery, but he was sidelined only briefly and made a full recovery. He first played for Clube Desportivo Nacional of Madeira and then transferred to Sporting Clube de Portugal (known as Sporting Lisbon), where he played for that club’s various youth teams before making his debut on Sporting’s first team in 2002."
-              state12={this.state.state12}
-            />
+          Early life and career
+          Ronaldo’s father, José Dinis Aveiro, was the equipment manager for the local club Andorinha. (The name Ronaldo was added to Cristiano’s name in honour of his father’s favourite movie actor, Ronald Reagan, who was U.S. president at the time of Cristiano’s birth.) At age 15 Ronaldo was diagnosed with a heart condition that necessitated surgery, but he was sidelined only briefly and made a full recovery. He first played for Clube Desportivo Nacional of Madeira and then transferred to Sporting Clube de Portugal (known as Sporting Lisbon), where he played for that club’s various youth teams before making his debut on Sporting’s first team in 2002."
+                  state12={state12}
+              />
           )}
         </div>
+
+
+
         <Router>
           <ul>
             <h1> Welcome To My Website </h1>
@@ -77,10 +80,19 @@ class App extends React.Component {
           </Switch>
         </Router>
         <UniversitySignup />
-        <UniversityForm />
+
+          <br/>
+          <br/>
+          <br/>
+          <br/><br/>
+          <br/><br/>
+
+          <UserContext.Provider value={{ count, incrementCount , decrementCount}}>
+              <Counter/>
+          </UserContext.Provider>
       </UserProvider>
-    );
-  }
+
+  );
 }
 
 export default App;
