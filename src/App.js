@@ -9,6 +9,7 @@ import CreateUser from "./CreateUser";
 import Modal from "./Modal";
 import UniversitySignup from "./UniversitySignup";
 import Counter from "./Counter";
+import Counter2 from "./Counter2";
 
 export const UserContext = React.createContext();
 
@@ -41,7 +42,10 @@ function App() {
   };
 
   return (
+
       <UserProvider value={state1}>
+        <Counter2/>
+
         <div>
           <button onClick={openModal}>Open Modal</button>
           <button onClick={closeModal}>Close Modal</button>
@@ -90,6 +94,7 @@ function App() {
           <UserContext.Provider value={{ count, incrementCount , decrementCount}}>
               <Counter/>
           </UserContext.Provider>
+
       </UserProvider>
 
   );
